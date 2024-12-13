@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>Bookstore.Maui</ApplicationTitle>
+		<ApplicationTitle>Bookstore</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.bookstore.maui</ApplicationId>
