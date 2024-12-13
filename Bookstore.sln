@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35506.116 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Api", "Bookstore.Api\Bookstore.Api.csproj", "{23ACE708-DA19-43B0-B50B-70F9EA8BB47B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Maui", "Bookstore.Maui\Bookstore.Maui.csproj", "{87BF05DE-EA82-43A8-ADB7-4CFCD089B8CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{23ACE708-DA19-43B0-B50B-70F9EA8BB47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23ACE708-DA19-43B0-B50B-70F9EA8BB47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23ACE708-DA19-43B0-B50B-70F9EA8BB47B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87BF05DE-EA82-43A8-ADB7-4CFCD089B8CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87BF05DE-EA82-43A8-ADB7-4CFCD089B8CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87BF05DE-EA82-43A8-ADB7-4CFCD089B8CF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{87BF05DE-EA82-43A8-ADB7-4CFCD089B8CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87BF05DE-EA82-43A8-ADB7-4CFCD089B8CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87BF05DE-EA82-43A8-ADB7-4CFCD089B8CF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

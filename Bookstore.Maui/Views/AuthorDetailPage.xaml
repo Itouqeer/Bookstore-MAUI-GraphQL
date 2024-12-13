@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Bookstore.Maui.Converters"
+             x:Class="Bookstore.Maui.Views.AuthorDetailPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:IdToVisibilityConverter x:Key="IdToVisibilityConverter" />
+            <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowSpacing="10"
+          ColumnSpacing="10"
+          Margin="20"
+          BackgroundColor="White"
+          RowDefinitions="Auto, Auto, Auto, *, Auto"
+          ColumnDefinitions="Auto, *">
+
+        <!-- Author ID Section -->
+        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}" Text="Author Code:" 
+               IsVisible="{Binding Author.Id, Converter={StaticResource IdToVisibilityConverter}}" />
+        <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource LabelStyle}" Text="{Binding Author.Id}" 
+               IsVisible="{Binding Author.Id, Converter={StaticResource IdToVisibilityConverter}}" />
+
+        <!-- Name Section -->
+        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}" Text="Name:" />
+        <Entry Grid.Row="1" Grid.Column="1" Style="{StaticResource EntryStyle}"
+               Text="{Binding Author.Name}" Placeholder="Enter the Author Name"
+               IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}" />
+
+        <!-- Bio Section -->
+        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelStyle}" Text="Bio:"
+               VerticalOptions="End" Margin="0,13"/>
+        <Editor Grid.Row="2" Grid.Column="1" Style="{StaticResource EditorStyle}"
+                Text="{Binding Author.Bio}" Placeholder="Enter the Author Bio" HeightRequest="150"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}" />
+
+        <!-- Save Button -->
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"
+                Text="Save" Command="{Binding SaveCommand}"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}" />
+
+        <!-- Loader -->
+        <ActivityIndicator Grid.RowSpan="5" Grid.ColumnSpan="2" IsRunning="{Binding IsBusy}" 
+                           VerticalOptions="Center" HorizontalOptions="Center" />
+
+    </Grid>
+</ContentPage>

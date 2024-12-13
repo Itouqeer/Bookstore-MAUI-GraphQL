@@ -73,18 +73,20 @@ namespace Bookstore.Api.Services
 
         private BookDto MapToBookDto(Book book, Author? author = null)
         {
+            author ??= book.Author;
+
             return new BookDto
             {
                 Id = book.Id,
                 Title = book.Title,
-                Author = (author ?? book.Author) != null
-                    ? new AuthorDto
+                Author = author == null
+                    ? null
+                    : new AuthorDto
                     {
-                        Id = book.Author.Id,
-                        Name = book.Author.Name,
-                        Bio = book.Author.Bio
+                        Id = author.Id,
+                        Name = author.Name,
+                        Bio = author.Bio
                     }
-                    : null
             };
         }
 

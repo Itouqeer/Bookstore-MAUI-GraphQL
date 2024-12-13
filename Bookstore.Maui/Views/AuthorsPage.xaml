@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bookstore.Maui.Views.AuthorsPage"
+             Title="Authors">
+
+    <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Add"
+                     IconImageSource="add.svg"
+                     Command="{Binding AddAuthorCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <RefreshView IsRefreshing="{Binding IsBusy}" Command="{Binding LoadAuthorsCommand}">
+        <CollectionView ItemsSource="{Binding Authors}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Reveal">
+                                <SwipeItem IconImageSource="edit.svg"
+                                           Command="{Binding BindingContext.EditAuthorCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                           CommandParameter="{Binding}" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Frame Style="{StaticResource FrameStyle}">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Style="{StaticResource FrameIdStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Author Code: "/>
+                                                <Span Text="{Binding Id}"/>
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Text="{Binding Name}" 
+                                       Style="{StaticResource FrameTitleStyle}" />
+                                <Label Style="{StaticResource FrameLabelStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Bio: "/>
+                                                <Span Text="{Binding Bio}"/>
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
